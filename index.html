@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Nextcloud</title>
+    <link rel="icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript">
+        window.onload = function () {
+            var q = window.location.search.substring(1);
+            q = q.split('&');
+            var v = q[0].split('=');
+            var u = q[1].split('=');
+            if (v[1] == 0) document.getElementById('warning').classList.remove('hidden');
+            if (u) document.getElementById('user').value = u[1];
+        }
+    </script>
+</head>
+
+<body id="body-login">
+    <div class="wrapper">
+        <div>
+            <header role="banner">
+                <div id="header">
+                    <div class="logo"></div>
+                </div>
+            </header>
+            <main>
+                <div>
+                    <div>
+                        <form method="get" name="login">
+                            <fieldset>
+                                <input style="display: none;" name="v" value="0">
+                                <p class="grouptop">
+                                    <input id="user" name="user" type="text" autocapitalize="none" autocorrect="off"
+                                        autocomplete="on" placeholder="Username or email" aria-label="Username or email"
+                                        required="required">
+                                    <label for="user" class="infield">Username or email</label>
+                                </p>
+                                <p class="groupbottom">
+                                    <input id="password" type="password" autocorrect="off"
+                                        autocapitalize="none" autocomplete="current-password" placeholder="Password"
+                                        aria-label="Password" required="required" class="password-with-toggle">
+                                    <label for="password" class="infield"></label>
+                                    <a href="#" class="toggle-password"><img src="img/toggle.svg"
+                                            alt="Toggle password visibility"></a>
+                                </p>
+                                <div id="submit-wrapper">
+                                    <input id="submit-form" type="submit" class="login primary" value="Log in"
+                                        style="color: white;">
+                                    <div class="submit-icon icon-confirm-white"></div>
+                                </div>
+                                <p id="warning" class="hidden warning wrongPasswordMsg">Wrong username or password.</p>
+                            </fieldset>
+                        </form><a id="lost-password" href="">Forgot password?</a><br>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <footer role="contentinfo">
+        <p class="info">
+            <a href="https://nextcloud.com" target="_blank" rel="noreferrer noopener" class="entity-name">Nextcloud </a>
+            – a safe home for all your data
+        </p>
+    </footer>
+</body>
+
+</html>
